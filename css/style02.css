@@ -513,3 +513,18 @@ footer { background: #080808; padding: 50px 0; border-top: 1px solid #222; }
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Brilho branco */
     transform: translateY(-3px);
 }
+
+/* =========================================
+   4. NAVBAR (MENU) - FUNDO ESCURO ATIVO
+   ========================================= */
+.navbar {
+    transition: all 0.4s ease;
+    padding: 15px 0;
+    z-index: 1030;
+    
+    /* ADICIONE ISSO AQUI: */
+    background: rgba(5, 5, 5, 0.85); /* Fundo preto com 85% de opacidade */
+    backdrop-filter: blur(10px);      /* Desfoque do fundo (Efeito Vidro) */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha fina sutil */
+}
