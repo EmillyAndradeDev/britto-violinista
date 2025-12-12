@@ -1,0 +1,515 @@
+/* =========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================= */
+   :root {
+    /* Cores Sólidas */
+    --primary-black: #050505;       /* Preto profundo */
+    --secondary-dark: #121212;      /* Cinza chumbo */
+    --text-white: #ffffff;          /* Branco puro para contraste no vidro */
+    --text-gray: #c0c0c0;
+    
+    /* Dourado Elegante */
+    --gold-gradient: linear-gradient(135deg, #d4af37, #f2d897, #d4af37);
+    --gold-solid: #D4AF37;
+    
+    /* FONTES CLEAN & ELEGANTES */
+    --font-display: 'Playfair Display', serif; /* Títulos estilo editorial */
+    --font-body: 'Lato', sans-serif;           /* Corpo de texto limpo */
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--primary-black); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-solid); }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--primary-black);
+    color: var(--text-white);
+    overflow-x: hidden;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* =========================================
+   2. TIPOGRAFIA GERAL
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--text-white);
+    font-weight: 400;
+}
+
+/* Destaque Dourado (pode usar <span> com essa classe) */
+.text-gold {
+    color: var(--gold-solid) !important;
+}
+
+/* =========================================
+   3. COMPONENTES E BOTÕES
+   ========================================= */
+/* Botão Dourado */
+.btn-gold {
+    background: var(--gold-gradient);
+    background-size: 200% auto;
+    color: #000;
+    font-family: var(--font-body);
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+    padding: 15px 35px;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    border-radius: 2px; /* Bordas levemente quadradas são mais elegantes */
+    font-size: 0.8rem;
+}
+
+.btn-gold:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    color: #000;
+}
+
+/* --- Botões de Arquivos (Atualizado para Visibilidade) --- */
+.btn-gold-dark {
+    /* 1. Visibilidade Imediata */
+    color: var(--gold-solid) !important; /* Força a cor dourada no texto/ícone */
+    border: 1px solid var(--gold-solid); /* Borda dourada visível */
+    background: rgba(255, 255, 255, 0.05); /* Fundo levemente visível */
+    
+    /* 2. Estilo e Tamanho */
+    width: 240px; /* Largura fixa para ficarem padronizados */
+    padding: 15px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    
+    /* 3. Transição Suave */
+    transition: all 0.4s ease;
+    display: inline-flex; /* Melhora alinhamento do ícone com texto */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+}
+
+/* --- Efeito ao passar o mouse (Hover) --- */
+.btn-gold-dark:hover {
+    background-color: var(--gold-solid); /* Preenche o fundo de dourado */
+    color: #000 !important; /* Texto vira preto para leitura fácil */
+    border-color: var(--gold-solid);
+    transform: translateY(-5px); /* O botão "flutua" para cima */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); /* Brilho dourado */
+}
+
+/* =========================================
+   4. NAVBAR (MENU)
+   ========================================= */
+.navbar {
+    transition: all 0.4s ease;
+    padding: 15px 0;
+    z-index: 1030; /* Garante que fique acima de tudo */
+}
+
+.navbar.bg-scrolled {
+    background: rgba(5, 5, 5, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff !important;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.7) !important;
+    transition: 0.3s;
+    font-weight: 400;
+    padding: 10px 15px !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--gold-solid) !important;
+}
+
+/* --- Ajuste da Logo na Navbar --- */
+.logo-nav {
+    max-height: 50px; /* Altura máxima ideal para desktop */
+    width: auto;      /* Mantém a proporção da imagem */
+    transition: transform 0.3s ease;
+}
+
+.logo-nav:hover {
+    transform: scale(1.05); /* Leve zoom ao passar o mouse */
+}
+
+/* Ajuste para Celular (Mobile) */
+@media (max-width: 768px) {
+    .logo-nav {
+        max-height: 40px; /* Um pouco menor para não ocupar muito espaço na tela */
+    }
+    
+    .navbar-brand {
+        padding: 0; /* Remove padding extra para alinhar melhor */
+        margin-right: auto; /* Garante que fique na esquerda */
+    }
+}
+
+/* =========================================
+   5. HERO SECTION (A NOVA CAPA ESTILO GLASS)
+   ========================================= */
+/* Estilos Base (Mobile First) */
+.hero {
+    min-height: 90vh; /* Altura quase total no mobile */
+    display: flex;
+    /* No mobile, o conteúdo fica alinhado embaixo */
+    align-items: flex-end; 
+    justify-content: center;
+    padding-bottom: 60px; /* Espaço para não colar no final da tela */
+    padding-top: 80px; /* Espaço para a navbar */
+
+    /* Imagem de fundo fixa (efeito parallax simples) */
+    background: url('../assets/img/violino-novo/violino07.jpeg') no-repeat center center;
+    background-attachment: fixed; /* Remove se der bug em iOS */
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay Gradiente para escurecer a imagem */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradiente escuro que vem de baixo para cima */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%);
+    z-index: -1;
+}
+
+/* O CARTÃO DE VIDRO (Onde fica o texto) */
+.hero .container {
+    /* Estilo Glassmorphism */
+    background: rgba(20, 20, 20, 0.65); /* Fundo semi-transparente */
+    backdrop-filter: blur(15px); /* O efeito de desfoque chique */
+    -webkit-backdrop-filter: blur(15px); /* Compatibilidade Safari */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+    border-top: 3px solid var(--gold-solid); /* Detalhe dourado no topo */
+    
+    padding: 40px 25px;
+    border-radius: 4px;
+    text-align: center; /* Centralizado no mobile */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    
+    /* Animação de entrada do cartão */
+    animation: fadeUpCard 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Título no Mobile */
+.hero h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo no Mobile */
+.hero p.lead {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Divisor Dourado */
+.divider {
+    width: 50px;
+    height: 2px;
+    background: var(--gold-solid);
+    border: none;
+    margin: 20px auto; /* Centralizado no mobile */
+}
+
+@keyframes fadeUpCard {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVIDADE DESKTOP (Tela Grande) --- */
+@media (min-width: 992px) {
+    .hero {
+        min-height: 100vh; /* Tela cheia no desktop */
+        align-items: center; /* Centraliza verticalmente */
+        justify-content: flex-start; /* Alinha à esquerda */
+        padding-left: 8%; /* Margem lateral esquerda */
+        padding-bottom: 0;
+        background-attachment: scroll; /* Parallax pode ser desligado aqui se preferir */
+    }
+
+    /* O Cartão de Vidro no Desktop */
+    .hero .container {
+        text-align: left; /* Alinha texto à esquerda */
+        max-width: 600px; /* Largura controlada */
+        padding: 60px 50px; /* Mais espaço interno */
+        margin-left: 0; /* Garante que fique na esquerda */
+        
+        /* Muda o detalhe da borda para a esquerda */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 4px solid var(--gold-solid);
+    }
+
+    .hero h1 {
+        font-size: 5rem; /* Título grande e impactante */
+    }
+
+    .hero p.lead {
+        font-size: 1rem;
+    }
+
+    .divider {
+        margin: 30px 0; /* Alinhado à esquerda */
+        width: 80px;
+    }
+    
+    /* Se houver botões numa div d-flex, alinha à esquerda */
+    .hero .d-flex {
+        justify-content: flex-start !important;
+    }
+}
+
+/* =========================================
+   6. DEMAIS SEÇÕES (CSS BÁSICO PARA MANTER O LAYOUT)
+   ========================================= */
+.section-padding { padding: 100px 0; }
+
+/* Ajustes rápidos para outras seções não quebrarem */
+.img-wrapper img { width: 100%; border: 1px solid rgba(212, 175, 55, 0.3); }
+.card { background: rgba(20,20,20,0.8); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+.card:hover { border-color: var(--gold-solid); }
+footer { background: #080808; padding: 50px 0; border-top: 1px solid #222; }
+.form-control { background: rgba(255,255,255,0.05) !important; border: 1px solid #333 !important; color: #fff !important; padding: 15px; }
+
+/* --- SEÇÃO DE SERVIÇOS PREMIUM --- */
+
+/* O Card em si */
+.service-card {
+    background: rgba(25, 25, 25, 0.6); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-solid);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Área da Imagem */
+.service-img-wrapper {
+    position: relative;
+    height: 300px; /* Altura fixa para todos os cards (Crucial para UX) */
+    overflow: hidden;
+}
+
+.service-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom suave ao passar o mouse */
+.service-card:hover .service-img-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Overlay sutil na imagem para texto não misturar se houver legenda */
+.service-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0.6;
+}
+
+/* Corpo do Texto */
+.service-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.service-title {
+    font-family: var(--font-display);
+    color: var(--gold-solid);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.service-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Controles do Carrossel (Setas) */
+.custom-control {
+    width: 5%; /* Mais estreito para não atrapalhar o clique no card */
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.custom-control:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.2);
+}
+
+/* Indicadores (Bolinhas) */
+.carousel-indicators button {
+    background-color: var(--gold-solid) !important;
+    width: 10px !important; height: 10px !important;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.3;
+}
+
+.carousel-indicators button.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .service-img-wrapper {
+        height: 250px; /* Um pouco menor no celular */
+    }
+    .service-body {
+        padding: 20px;
+    }
+    .service-title {
+        font-size: 1.5rem;
+    }
+    .custom-control {
+        display: none; /* Esconde setas no mobile (foco no swipe/dedo) */
+    }
+}
+
+/* =========================================
+   SEÇÃO DE AVALIAÇÕES (GOOGLE REVIEWS)
+   ========================================= */
+
+/* O Card de Avaliação */
+.review-card {
+    background: rgba(255, 255, 255, 0.03); /* Fundo muito sutil */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda quase invisível */
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.review-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3); /* Borda dourada ao passar o mouse */
+}
+
+/* Cabeçalho do Card (Foto + Nome) */
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Avatar (Foto do cliente - se não tiver, use um ícone genérico) */
+.review-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary-dark);
+}
+
+/* Nome e Data */
+.review-name {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    display: block;
+}
+
+/* Texto da Avaliação */
+.review-text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ddd;
+    font-style: italic;
+}
+
+/* Ícones de Estrela */
+.review-stars i {
+    font-size: 0.8rem;
+    margin-right: 2px;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .review-card {
+        padding: 20px;
+    }
+}
+
+
+/* --- Botão Específico do Google --- */
+.btn-google {
+    /* Estado Inicial: Cinza Claro */
+    color: #b0b0b0 !important; /* Cinza claro */
+    border: 1px solid var(--gold-solid); /* Borda Dourada (identidade da marca) */
+    background: transparent;
+    
+    /* Formatação igual aos outros botões */
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Estado Hover (Ao passar o mouse): Branco */
+.btn-google:hover {
+    color: #ffffff !important; /* Texto Branco */
+    border-color: #ffffff; /* Borda também vira branca para combinar */
+    background: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Brilho branco */
+    transform: translateY(-3px);
+}
