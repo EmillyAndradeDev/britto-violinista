@@ -146,19 +146,26 @@ h1, h2, h3 {
 
 /* --- Ajuste da Logo na Navbar --- */
 .logo-nav {
-    max-height: 50px; /* Altura máxima ideal para desktop */
+    max-height: 90px; /* Altura máxima ideal para desktop */
     width: auto;      /* Mantém a proporção da imagem */
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .logo-nav:hover {
     transform: scale(1.05); /* Leve zoom ao passar o mouse */
 }
 
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 1rem;
+}
+
 /* Ajuste para Celular (Mobile) */
 @media (max-width: 768px) {
     .logo-nav {
-        max-height: 40px; /* Um pouco menor para não ocupar muito espaço na tela */
+        max-height: 60px; /* Um pouco menor para não ocupar muito espaço na tela */
     }
     
     .navbar-brand {
