@@ -1,34 +1,29 @@
-/* =========================================
-   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
-   ========================================= */
-   :root {
-    /* Cores Sólidas */
-    --primary-black: #050505;       /* Preto profundo */
-    --secondary-dark: #121212;      /* Cinza chumbo */
-    --text-white: #f5f5f5;          /* Branco levemente off-white (mais suave) */
-    --text-gray: #b0b0b0;
-    
-    /* Gradiente Dourado */
-    --gold-gradient: linear-gradient(135deg, #d4af37, #e6c86e, #d4af37);
+:root {
+    --primary-black: #050505;
+    --secondary-dark: #121212;
+    --text-white: #ffffff;
+    --text-gray: #c0c0c0;
+
+    --gold-gradient: linear-gradient(135deg, #d4af37, #f2d897, #d4af37);
     --gold-solid: #D4AF37;
-    
-    /* FONTES (CLEAN) */
-    --font-display: 'Playfair Display', serif; 
-    --font-serif: 'Cinzel', serif;         
-    --font-body: 'Lato', sans-serif;       
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
 }
 
-/* Scrollbar Personalizada */
 ::-webkit-scrollbar {
     width: 10px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--primary-black);
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #444;
+    background: #333;
     border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--gold-solid);
 }
@@ -39,361 +34,559 @@ body {
     color: var(--text-white);
     overflow-x: hidden;
     line-height: 1.8;
-    font-weight: 300; /* Texto geral mais leve */
+    font-weight: 300;
 }
 
-/* =========================================
-   2. TIPOGRAFIA ELEGANTE & DELICADA
-   ========================================= */
-
-/* Títulos Principais (H1, H2) -  Clean */
-h1, h2 {
+/*  TIPOGRAFIA GERAL */
+h1,
+h2,
+h3 {
     font-family: var(--font-display);
-    font-weight: 400; /* Peso regular (não negrito) para ficar delicado */
-    letter-spacing: -0.5px; /* Letras levemente mais juntas (tendência moderna) */
-    color: #fff;
-}
-
-/* Títulos Secundários mais sóbrios */
-h3, h4, h5, h6 {
-    font-family: var(--font-display); /* Usando a mesma fonte para consistência */
-    color: var(--gold-solid);
-    letter-spacing: 0.5px;
+    color: var(--text-white);
     font-weight: 400;
 }
 
-/* Classe utilitária para títulos grandes */
-.font-title {
-    font-family: var(--font-display);
-    color: var(--gold-solid);
-}
-
-/* Destaque dourado com gradiente no texto */
-.text-gold-gradient {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600; /* Um pouco mais de destaque aqui */
-}
-
+/* Destaque Dourado*/
 .text-gold {
     color: var(--gold-solid) !important;
 }
 
-/* =========================================
-   3. COMPONENTES E BOTÕES
-   ========================================= */
-
-/* Botão Dourado Premium */
+/*  COMPONENTES E BOTÕES */
+/* Botão Dourado */
 .btn-gold {
     background: var(--gold-gradient);
     background-size: 200% auto;
     color: #000;
-    font-family: var(--font-body); /* Fonte limpa no botão para leitura fácil */
+    font-family: var(--font-body);
     font-weight: 700;
     border: none;
     text-transform: uppercase;
-    padding: 12px 30px;
-    letter-spacing: 2px; /* Espaçamento chique */
+    padding: 15px 35px;
+    letter-spacing: 2px;
     transition: 0.5s;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-    font-size: 0.85rem;
+    border-radius: 2px;
+    font-size: 0.8rem;
 }
 
 .btn-gold:hover {
-    background-position: right center; 
-    color: #000;
+    background-position: right center;
     transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
-}
-
-/* Botão Outline Elegante */
-.btn-outline-gold {
-    border: 1px solid var(--gold-solid);
-    color: var(--gold-solid);
-    font-family: var(--font-body);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    transition: 0.4s;
-    background: transparent;
-}
-
-.btn-outline-gold:hover {
-    background: var(--gold-gradient);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
     color: #000;
-    border-color: transparent;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-/* Botões de Arquivos */
+/* --- Botões de Arquivos --- */
 .btn-gold-dark {
+    /* 1. Visibilidade Imediata */
+    color: var(--gold-solid) !important;
+    border: 1px solid var(--gold-solid);
+    /* Borda dourada visível */
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: var(--text-gray);
-    transition: 0.3s;
-    backdrop-filter: blur(5px);
+    /* Fundo levemente visível */
+
+    /* 2. Estilo e Tamanho */
+    width: 240px;
+    /* Largura fixa para ficarem padronizados */
+    padding: 15px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+
+    /* 3. Transição Suave */
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
+/* --- Efeito ao passar o mouse (Hover) --- */
 .btn-gold-dark:hover {
+    background-color: var(--gold-solid);
+    color: #000 !important;
     border-color: var(--gold-solid);
-    color: var(--gold-solid);
-    background: rgba(0,0,0,0.5);
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
-/* =========================================
-   4. NAVBAR (MENU) - ATUALIZADO
-   ========================================= */
+/* NAVBAR (MENU)*/
 .navbar {
     transition: all 0.4s ease;
-    padding: 20px 0; /* Mais respiro na navbar */
-}
-
-/* Navbar Scrolled */
-.navbar.bg-black, .navbar.bg-custom-dark {
-    background: rgba(5, 5, 5, 0.95) !important;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     padding: 15px 0;
+    z-index: 1030;
 }
 
-/* LOGO "BRITTO" - CLEAN & DELICADO */
+.navbar.bg-scrolled {
+    background: rgba(5, 5, 5, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 10px 0;
+}
+
 .navbar-brand {
-    font-family: var(--font-display); /* Playfair Display */
-    font-size: 2rem;
-    font-weight: 700; /* Peso bold para destacar a marca */
-    letter-spacing: -1px; /* Letras mais juntas = sofisticação */
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
     color: #fff !important;
-}
-
-/* LOGO "VIOLINISTA" (O span dentro do brand) */
-.navbar-brand span {
-    font-family: var(--font-body); /* Lato (Sans serif) para contraste */
-    font-size: 0.9rem;
-    font-weight: 300; /* Bem fininho */
-    letter-spacing: 3px; /* Bem espaçado */
-    margin-left: 8px;
-    text-transform: uppercase;
-    color: var(--gold-solid);
-    position: relative;
-    top: -3px; /* Ajuste fino de alinhamento visual */
 }
 
 .nav-link {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 2px; /* Mais espaço entre letras = mais clean */
-    position: relative;
-    color: rgba(255,255,255,0.8) !important;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7) !important;
     transition: 0.3s;
     font-weight: 400;
+    padding: 10px 15px !important;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--gold-solid) !important;
 }
 
-/* Linha fina e delicada no hover */
-.nav-link::after {
+/* --- Ajuste da Logo na Navbar --- */
+.logo-nav {
+    max-height: 90px;
+    width: auto;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.logo-nav:hover {
+    transform: scale(1.05);
+}
+
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 1rem;
+}
+
+/* Ajuste para Celular (Mobile) */
+@media (max-width: 768px) {
+    .logo-nav {
+        max-height: 60px;
+    }
+
+    .navbar-brand {
+        padding: 0;
+        margin-right: auto;
+    }
+}
+
+/* HERO SECTION (ESTILO GLASS) */
+/* (Mobile First) */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 60px;
+    padding-top: 80px;
+
+    background: url('../assets/img/violino-novo/violino07.jpeg') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay Gradiente para escurecer a imagem */
+.hero::before {
     content: '';
     position: absolute;
-    width: 0;
-    height: 1px; /* Linha bem fina */
-    bottom: 0px;
+    top: 0;
     left: 0;
-    background-color: var(--gold-solid);
-    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.nav-link:hover::after {
     width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: -1;
 }
 
-/* =========================================
-   5. HERO SECTION (CAPA)
-   ========================================= */
-.hero {
-    height: 100vh;
-    /* Imagem de fundo */
-    background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%), url('../assets/img/britto-violinista-02.jpg') no-repeat center center/cover;
-    position: relative;
-    overflow: hidden;
+/* O CARTÃO DE VIDRO (Onde fica o texto) */
+.hero .container {
+    background: rgba(20, 20, 20, 0.65);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid var(--gold-solid);
+    padding: 40px 25px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    animation: fadeUpCard 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
 }
 
-/* Título da Capa - Delicado e Grande */
+/* Título no Mobile */
 .hero h1 {
-    font-size: 4.5rem; /* Um pouco menor que antes para ser mais elegante */
-    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    margin-bottom: 10px;
-    font-style: italic; /* O itálico da Playfair é lindo e delicado */
-    font-weight: 400;
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
 }
 
-/* Subtítulo Clean */
+/* Subtítulo no Mobile */
 .hero p.lead {
     font-family: var(--font-body);
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 0.9rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    opacity: 0.9;
 }
 
-/* Animação suave de "respiração" */
-.hero {
-    animation: zoomBackground 20s infinite alternate;
-}
-
-@keyframes zoomBackground {
-    0% { background-size: 100%; }
-    100% { background-size: 105%; } /* Movimento mais sutil */
-}
-
+/* Divisor Dourado */
 .divider {
-    width: 80px; /* Menor e mais delicado */
-    height: 1px; /* Linha fina */
+    width: 50px;
+    height: 2px;
     background: var(--gold-solid);
     border: none;
-    opacity: 0.8;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
-/* =========================================
-   6. SEÇÕES INTERNAS
-   ========================================= */
-.section-padding {
-    padding: 100px 0;
-}
-
-/* Imagens */
-.img-wrapper {
-    position: relative;
-    padding: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.2); /* Borda muito sutil */
-}
-
-.img-wrapper img {
-    width: 100%;
-    display: block;
-    filter: sepia(10%) contrast(105%); 
-    transition: 0.5s;
-}
-
-.img-wrapper:hover img {
-    filter: sepia(0%) contrast(100%);
-}
-
-/* Cards */
-.card {
-    background: rgba(20, 20, 20, 0.6); 
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    transition: all 0.4s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px); 
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-.card-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Títulos das seções */
-h2.font-title {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    font-weight: 400;
-}
-
-/* =========================================
-   7. FORMULÁRIO DE CONTATO
-   ========================================= */
-.form-control {
-    background-color: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #fff !important;
-    padding: 15px;
-    border-radius: 2px; 
-    font-family: var(--font-body);
-    font-weight: 300;
-}
-
-.form-control:focus {
-    background-color: rgba(255, 255, 255, 0.08) !important;
-    border-color: var(--gold-solid) !important;
-    box-shadow: none;
-}
-
-/* =========================================
-   8. FOOTER
-   ========================================= */
-footer {
-    background-color: #000;
-    border-top: 1px solid #1a1a1a;
-}
-
-footer h3 {
-    font-size: 2rem;
-    letter-spacing: 1px;
-}
-
-.social-icons a {
-    color: var(--text-gray);
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.social-icons a:hover {
-    color: var(--gold-solid);
-    transform: translateY(-3px);
-}
-
-/* =========================================
-   9. ANIMAÇÕES (CSS Keyframes)
-   ========================================= */
-.animate-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-}
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-
-@keyframes fadeInUp {
+@keyframes fadeUpCard {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* =========================================
-   10. RESPONSIVIDADE
-   ========================================= */
-@media (max-width: 768px) {
+/* --- RESPONSIVIDADE DESKTOP --- */
+@media (min-width: 992px) {
+    .hero {
+        min-height: 100vh;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 8%;
+        padding-bottom: 0;
+        background-attachment: scroll;
+    }
+
+    /* O Cartão de Vidro no Desktop */
+    .hero .container {
+        text-align: left;
+        max-width: 600px;
+        padding: 60px 50px;
+        margin-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-left: 4px solid var(--gold-solid);
+    }
+
     .hero h1 {
-        font-size: 3rem;
+        font-size: 5rem;
     }
-    
-    h2.font-title {
-        font-size: 2.5rem;
+
+    .hero p.lead {
+        font-size: 1rem;
     }
-    
-    .section-padding {
-        padding: 60px 0;
+
+    .divider {
+        margin: 30px 0;
+        width: 80px;
     }
-    
-    .navbar-brand {
-        font-size: 1.5rem;
+
+    .hero .d-flex {
+        justify-content: flex-start !important;
     }
 }
+
+/* DEMAIS SEÇÕES (CSS BÁSICO PARA MANTER O LAYOUT) */
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Ajustes rápidos para outras seções não quebrarem */
+.img-wrapper img {
+    width: 100%;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--gold-solid);
+}
+
+footer {
+    background: #080808;
+    padding: 50px 0;
+    border-top: 1px solid #222;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid #333 !important;
+    color: #fff !important;
+    padding: 15px;
+}
+
+/* --- SEÇÃO DE SERVIÇOS PREMIUM --- */
+
+.service-card {
+    background: rgba(25, 25, 25, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-solid);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-img-wrapper {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.service-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .service-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.service-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0.6;
+}
+
+.service-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.service-title {
+    font-family: var(--font-display);
+    color: var(--gold-solid);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.service-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.custom-control {
+    width: 5%;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.custom-control:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-indicators button {
+    background-color: var(--gold-solid) !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50%;
+    margin: 0 5px;
+    opacity: 0.3;
+}
+
+.carousel-indicators button.active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .service-img-wrapper {
+        height: 250px;
+    }
+
+    .service-body {
+        padding: 20px;
+    }
+
+    .service-title {
+        font-size: 1.5rem;
+    }
+
+    .custom-control {
+        display: none;
+    }
+}
+
+/* SEÇÃO DE AVALIAÇÕES */
+
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.review-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary-dark);
+}
+
+.review-name {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    display: block;
+}
+
+.review-text {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #ddd;
+    font-style: italic;
+}
+
+.review-stars i {
+    font-size: 0.8rem;
+    margin-right: 2px;
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        padding: 20px;
+    }
+}
+
+
+/* --- Botão Específico do Google --- */
+.btn-google {
+    color: #b0b0b0 !important;
+    border: 1px solid var(--gold-solid);
+    background: transparent;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Estado Hover (Ao passar o mouse): Branco */
+.btn-google:hover {
+    color: #ffffff !important;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* NAVBAR - FUNDO ESCURO ATIVO */
+.navbar {
+    transition: all 0.4s ease;
+    padding: 15px 0;
+    z-index: 1030;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* SCROLL INTERNO - SEÇÃO SOBRE */
+
+.about-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-solid) #222;
+}
+
+/* Estilização da Barra de Rolagem (Chrome, Edge, Safari) */
+.about-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.about-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.about-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--gold-solid);
+    border-radius: 3px;
+    border: 1px solid #000;
+}
+
+.about-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: #fff;
+}
+
+/* ANIMAÇÕES AO ROLAR (SCROLL ANIMATION)*/
+.animate-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Estado Visível (Adicionado pelo JS) */
+.animate-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays para efeito cascata */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
