@@ -51,6 +51,10 @@ h3 {
     color: var(--gold-solid) !important;
 }
 
+.text-light-gray {
+    color: var(--text-gray) !important;
+}
+
 /*  COMPONENTES E BOTÕES */
 /* Botão Dourado */
 .btn-gold {
