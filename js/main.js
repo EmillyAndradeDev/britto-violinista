@@ -1,7 +1,3 @@
-/**
- * Arquivo Principal de Comportamento da Interface
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     
     // Fecha o menu mobile automaticamente ao clicar em um link
@@ -20,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Adiciona classe 'scrolled' na navbar ao rolar a página
-    // Útil se quiser mudar a cor do menu após sair do topo
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
