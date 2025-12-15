@@ -306,9 +306,9 @@ h3 {
     padding-top: 80px; /* Compensar Navbar */
     
     /* Pode usar a mesma imagem ou outra */
-    background: url('../assets/img/britto/britto-violinista-02.jpg') no-repeat center center;
+    background: url('../assets/img/servicos/balada-05.png') no-repeat center center;
     background-size: cover;
-    background-attachment: fixed; /* Parallax */
+    background-attachment: center top; 
     position: relative;
     z-index: 1;
 }
